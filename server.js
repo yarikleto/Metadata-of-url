@@ -56,13 +56,13 @@ router
     try {
       const metadata = await scrape(href);
 
-      ctx.body = {
+      ctx.body = Object.assign(infoAboutUrl, {
         contentType: 'html',
         title: get(metadata, 'openGraph.title', ''),
         description: get(metadata, 'openGraph.description', ''),
         mediaLink: get(metadata, 'openGraph.image.url', ''),
         articleUrl: get(metadata, 'openGraph.url', ''),
-      };
+      });
       return;
     } catch (err) {
       ctx.status = 400;
