@@ -4,6 +4,7 @@ yarn start
 ```
 And go to `http://localhost:3001`
 
+Method: `GET`
 
 Simply api:  `http://localhost:3001/scrape?href=[your_href]`
 
