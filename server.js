@@ -24,7 +24,7 @@ router
     try {
       reqInfo = await axios.head(href, {
         headers: {
-          'Accept': 'text/html',
+          'Accept': 'text/html, image/*, video/*',
         },
       });
     } catch (err) {
