@@ -11,14 +11,6 @@ router
   .get('/scrape', async ctx => {
     const href = ctx.query.href;
     const validContentTypes = ['image', 'video', 'html'];
-    const infoAboutUrl = {
-      articleUrl: '',
-      contentType: '',
-      mediaLink: '',
-      title: '',
-      description: '',
-      error: '',
-    };
 
     let reqInfo = null;
     try {
@@ -29,9 +21,9 @@ router
       });
     } catch (err) {
       ctx.status = 400;
-      ctx.body = Object.assign(infoAboutUrl, {
+      ctx.body = {
         error: 'It is not valid url',
-      });
+      };
       return;
     }
 
@@ -46,29 +38,29 @@ router
     }
 
     if (contentType === 'image' || contentType === 'video') {
-      ctx.body = Object.assign(infoAboutUrl, {
+      ctx.body = {
         contentType,
         mediaLink: href,
-      });
+      };
       return;
     }
 
     try {
       const metadata = await scrape(href);
 
-      ctx.body = Object.assign(infoAboutUrl, {
+      ctx.body = {
         contentType: 'html',
         title: get(metadata, 'openGraph.title', ''),
         description: get(metadata, 'openGraph.description', ''),
         mediaLink: get(metadata, 'openGraph.image.url', ''),
         articleUrl: get(metadata, 'openGraph.url', ''),
-      });
+      };
       return;
     } catch (err) {
       ctx.status = 400;
-      ctx.body = Object.assign(infoAboutUrl, {
+      ctx.body = {
         error: 'It is not valid html link',
-      });
+      };
     }
   })
 
