@@ -23,8 +23,12 @@ Responce:
   "description": "2018 delivered an unprecedented cascade of lies",
 }
 ```
-
+---
 - Image: https://www.gettyimages.com/gi-resources/images/CreativeLandingPage/HP_Sept_24_2018/CR3_GettyImages-159018836.jpg
+
+Other data:
+
+https://www.pic.com.kw/content_bg.png
 ```
 http://localhost:3001/scrape?href=https://www.gettyimages.com/gi-resources/images/CreativeLandingPage/HP_Sept_24_2018/CR3_GettyImages-159018836.jpg
 
@@ -34,7 +38,7 @@ Responce:
   "mediaLink": "https://www.gettyimages.com/gi-resources/images/CreativeLandingPage/HP_Sept_24_2018/CR3_GettyImages-159018836.jpg",
 }
 ```
-
+---
 - Video: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
 ```
 http://localhost:3001/scrape?href=http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
