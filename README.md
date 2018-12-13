@@ -49,7 +49,7 @@ Responce:
 ```
 http://localhost:3001/scrape?href=fdsfsdfwds
 
-Responce:
+Responce (code 400):
 {
   "error": "It is not valid url"
 }
